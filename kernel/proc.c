@@ -146,6 +146,8 @@ found:
   p->context.ra = (uint64)forkret;
   p->context.sp = p->kstack + PGSIZE;
 
+  p->syscall_trace = 0;  //新添加的syscall_trace设置默认值为0
+
   return p;
 }
 
@@ -309,6 +311,8 @@ fork(void)
   np->cwd = idup(p->cwd);
 
   safestrcpy(np->name, p->name, sizeof(p->name));
+
+  np->syscall_trace = p->syscall_trace; //子进程继承父进程的syscall_trace
 
   pid = np->pid;
 
