@@ -89,6 +89,8 @@
         "version": "c",
         "spinlock.h": "c",
         "proc.h": "c",
-        "syscall.h": "c"
+        "syscall.h": "c",
+        "types.h": "c",
+        "param.h": "c"
     }
 }
